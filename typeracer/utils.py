@@ -45,7 +45,7 @@ async def evaluate(ctx, a_string: str, b_string: str, time_taken, dm_id, author_
 
     if "​" in b_string:
         if not dm_id:
-            await special_send("Imagine cheating bruh, c'mon atleast be honest here.")
+            await special_send("Imagine cheating bruh, c'mon at least be honest here.")
         else:
             await special_send("You cheated and hence you are disqualified.")
         return
@@ -89,7 +89,7 @@ async def get_text(settings) -> tuple:
 
 
 def nocheats(text: str) -> str:
-    """To catch Cheaters upto some extent"""
+    """To catch Cheaters up to some extent"""
     text_list = list(text)
     size = len(text)
     for _ in range(size // 5):

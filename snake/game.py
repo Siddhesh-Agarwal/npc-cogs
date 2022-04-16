@@ -17,7 +17,7 @@ def get_point(size, board):
         y = random.randint(0, size - 1)
         if board[x][y] == 0:
             return x, y
-    # At the worst case, try to traverse the board linearlly
+    # At the worst case, try to traverse the board linearly
     for i in range(size):
         for j in range(size):
             if board[i][j] == 0:

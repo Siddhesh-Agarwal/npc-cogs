@@ -8,7 +8,7 @@ A fun oriented list of Red-Cogs made for fun and stonks.
 Discord User: epic guy#0715  
 Docs: https://npc-cogs.readthedocs.io/en/latest
 
-# Installation
+## Installation
 
 To add cogs from this repo to your instance, do these steps:
 
@@ -37,14 +37,14 @@ To add cogs from this repo to your instance, do these steps:
 - Everyone who contributed to make this better.
 - Thank you Red community, you guys are awesome.
 
-# Contributing
+## Contributing
 
 - Haven't set up pre-commit hooks yet, so if you want to contribute, please do it yourself.
-- Kindly follow the format of black with line-length = 99 and isort
+- Kindly follow the format of black with line-length = 99 and isort.
 - This can be done by `pip install -U black isort`
 - Then run the below commands to auto format your code
 
-```py
+```ps
 black .
 isort .
 ```

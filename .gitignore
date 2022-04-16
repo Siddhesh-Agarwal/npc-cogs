@@ -1,4 +1,15 @@
-__pycache__
-*.pyc
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environments
+.env
+.venv
+env/
+venv/
+
+# Editor config folders
 .vscode
-scc.exe
+.idea
+.vs
