@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
     "name": "reddit",
     "short": "Pull up reddit posts",
@@ -21,4 +22,29 @@
     "hidden": false,
     "disabled": false,
     "type": "COG"
+=======
+{
+    "name": "reddit",
+    "short": "Pull up reddit posts",
+    "description": "Searches a subreddit for it hottest posts",
+    "end_user_data_statement": "This cog does not persistently store any data or metadata about users.",
+    "install_msg": "Reddit!? Again!?",
+    "author": [
+        "Siddhesh-Agarwal"
+    ],
+    "required_cogs": {},
+    "requirements": [
+        "html2text",
+        "beautifulsoup4"
+    ],
+    "tags": [
+        "utility",
+        "fun",
+        "internet"
+    ],
+    "min_bot_version": "3.3.10",
+    "hidden": false,
+    "disabled": false,
+    "type": "COG"
+>>>>>>> main
 }
