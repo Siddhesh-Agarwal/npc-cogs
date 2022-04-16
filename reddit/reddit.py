@@ -1,7 +1,8 @@
-import discord
-from redbot.core.bot import Red
-from redbot.core import commands
 import json
+
+import discord
+from redbot.core import commands
+from redbot.core.bot import Red
 
 
 class Reddit(commands.Cog):
@@ -15,10 +16,8 @@ class Reddit(commands.Cog):
 
     @commands.group(invoke_without_command=True)
     @commands.bot_has_permissions(embed_links=True, add_reactions=True)
-    async def reddit(self, subreddit: str = "ProgrammerHumor", limit: int = 3):
-        """
-        Get the top posts from a subreddit.
-        """
+    async def get_posts(self, subreddit: str = "ProgrammerHumor", limit: int = 3):
+        """Get the top posts from a subreddit."""
         if limit > 25:
             limit = 25
         elif limit < 1:
@@ -26,18 +25,31 @@ class Reddit(commands.Cog):
         subreddit = subreddit.lower()
         url = f"{self.BASE_URL}/r/{subreddit}/top.json?limit={limit}"
 
-        async with self.bot.session.get(url) as resp:
-            if resp.status != 200:
+        async with self.bot.session.get(url) as response:
+            if response.status != 200:
                 return await self.bot.say("Could not get data from reddit.")
-            data = await resp.json()
+
+            data = json.loads(await response.text())
             if not data["data"]["children"]:
                 return await self.bot.say("No posts found.")
+
             embed = discord.Embed(title=f"Top {limit} posts from r/{subreddit}")
             for post in data["data"]["children"]:
-                post_data = json.loads(post["data"])
                 embed.add_field(
-                    name=post_data["title"],
-                    value=f"{self.BASE_URL}{post_data['permalink']}",
+                    name=post["data"]["title"],
+                    value=f"{self.BASE_URL}{post['data']['permalink']}",
                     inline=False,
                 )
             await self.bot.say(embed=embed)
+
+    @commands.command()
+    async def reddit(self, ctx, *, query: str):
+        """
+        Gets the top posts from a subreddit
+
+        Examples
+        --------
+        &reddit
+        &reddit ProgrammerHumor
+        &reddit ProgrammerHumor 5
+        """
